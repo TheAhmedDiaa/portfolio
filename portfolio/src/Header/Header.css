@@ -1,0 +1,31 @@
+section {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  position: sticky;
+  top: 2rem;
+  z-index: 100;
+}
+
+nav {
+  margin: 2rem auto;
+  padding: 1rem;
+
+  max-width: 600px;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-elevation);
+
+  border: solid 4px var(--color-border);
+  border-radius: 50px;
+}
+
+h3, .h3 {
+  padding-left: 2rem;
+  display: inline-block;
+}
+
+a {
+  float: right;
+  padding: 0 0.25rem;
+  color: var(--color-text-secondary);
+  text-decoration-line: none;
+}
