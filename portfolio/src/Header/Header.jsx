@@ -1,10 +1,11 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
-import bars from "../assets/menu2.svg"
+import bars from "../assets/menu2.svg";
 
 export default function Header() {
   let [isSmall, setIsSmall] = useState(false);
+  let [sideParOpen, setSideParOpen] = useState(false);
 
   useEffect(() => {
     const checkWindowSize = () => {
@@ -29,28 +30,45 @@ export default function Header() {
     window.scrollTo(0, 0);
   }, []);
 
+  function openNav() {
+    setSideParOpen(true);
+  }
+
+  function closeNav() {
+    setSideParOpen(false);
+  }
+
   return (
-    <section data-aos="fade-down">
-      <nav>
-        <GradientText
-          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-          animationSpeed={3}
-          showBorder={false}
-          className="h3"
-        >
-          Ahmed's Portfolio
-        </GradientText>
-        {!isSmall && (
-          <div className="as">
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-          </div>
-        )}
-        {isSmall && (
-          <img src={bars} alt="More"></img>
-        )}
-      </nav>
-    </section>
+    <>
+      <section data-aos="fade-down">
+        <nav id="mainPar">
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="h3"
+          >
+            Ahmed's Portfolio
+          </GradientText>
+          {!isSmall && (
+            <div className="as">
+              <a href="#skills">Skills</a>
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+            </div>
+          )}
+          {isSmall && <img src={bars} onClick={openNav} alt="More"></img>}
+        </nav>
+      </section>
+      <div id="sidePar" style={{ width: sideParOpen ? "205px" : "0" }}>
+        <button id="closeB" onClick={closeNav}>
+          &times;
+        </button>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </>
   );
 }

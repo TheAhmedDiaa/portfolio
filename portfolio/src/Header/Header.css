@@ -2,10 +2,10 @@ section {
   margin: 1rem;
   position: sticky;
   top: 2rem;
-  z-index: 100;
+  z-index: 2;
 }
 
-nav {
+#mainPar {
   display:grid;
   grid-template-columns: 1fr 0.5fr;
   margin: 0 auto;
@@ -20,7 +20,7 @@ nav {
 }
 
 .h3 {
-  padding-left: 4rem;
+  padding-left: 3rem;
 }
 
 .as {
@@ -46,4 +46,32 @@ img {
   border-radius: inherit;
 
   cursor: pointer;
+}
+
+#sidePar {
+  height: 100%;
+  width: 0;
+  position:absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#sidePar a {
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  transition: 0.3s;
+}
+
+#sidePar #closeB {
+  position: fixed;
+  top: 0;
+  font-size: 2rem;
+  margin-left: 2rem;
 }
