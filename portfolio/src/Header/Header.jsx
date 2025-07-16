@@ -1,8 +1,23 @@
 import "./Header.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
+import bars from "../assets/menu2.svg"
 
 export default function Header() {
+  let [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    const checkWindowSize = () => {
+      setIsSmall(window.innerWidth < 762);
+    };
+
+    checkWindowSize();
+
+    window.addEventListener("resize", checkWindowSize);
+
+    return () => window.removeEventListener("resize", checkWindowSize);
+  }, []);
+
   if (window.location.hash) {
     history.replaceState(null, null, " ");
   }
@@ -18,18 +33,24 @@ export default function Header() {
     <section data-aos="fade-down">
       <nav>
         <GradientText
-        colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-        animationSpeed={3}
-        showBorder={false}
-        className="h3"
-      >
-        Ahmed's Portfolio
-      </GradientText>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
+          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+          animationSpeed={3}
+          showBorder={false}
+          className="h3"
+        >
+          Ahmed's Portfolio
+        </GradientText>
+        {!isSmall && (
+          <div className="as">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+          </div>
+        )}
+        {isSmall && (
+          <img src={bars} alt="More"></img>
+        )}
       </nav>
-      
     </section>
   );
 }

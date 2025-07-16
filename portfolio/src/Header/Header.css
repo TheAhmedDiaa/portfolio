@@ -1,16 +1,17 @@
 section {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin: 1rem;
   position: sticky;
   top: 2rem;
   z-index: 100;
 }
 
 nav {
-  margin: 2rem auto;
-  padding: 1rem;
+  display:grid;
+  grid-template-columns: 1fr 0.5fr;
+  margin: 0 auto;
 
   max-width: 600px;
+  min-height: 3.2rem;
   background-color: var(--color-surface);
   box-shadow: var(--shadow-elevation);
 
@@ -18,14 +19,31 @@ nav {
   border-radius: 50px;
 }
 
-h3, .h3 {
-  padding-left: 2rem;
-  display: inline-block;
+.h3 {
+  padding-left: 4rem;
+}
+
+.as {
+  display: flex;
+  padding-right: 2rem;
+  margin-left: auto;
+  align-items: center;
+  border-radius: inherit;
 }
 
 a {
-  float: right;
-  padding: 0 0.25rem;
-  color: var(--color-text-secondary);
-  text-decoration-line: none;
+  margin: 0 0.25rem;
+}
+
+img {
+  max-width: 2rem;
+  margin-right: 2rem;
+  
+  display: flex;
+  justify-self: right;
+  align-self: center;
+
+  border-radius: inherit;
+
+  cursor: pointer;
 }
