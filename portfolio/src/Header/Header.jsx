@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     <>
-      <section data-aos="fade-down">
+      <header data-aos="fade-down">
         <nav id="mainPar">
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -57,17 +57,17 @@ export default function Header() {
               <a href="#projects">Projects</a>
             </div>
           )}
-          {isSmall && <img src={bars} onClick={openNav} alt="More"></img>}
+          {isSmall && <img className="img" src={bars} onClick={openNav} alt="More"></img>}
         </nav>
-      </section>
+      </header>
       <div id="sidePar" style={{ width: sideParOpen ? "205px" : "0" }}>
         <button id="closeB" onClick={closeNav}>
           &times;
         </button>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a className="a" href="#about">About</a>
+        <a className="a" href="#skills">Skills</a>
+        <a className="a" href="#projects">Projects</a>
+        <a className="a" href="#contact">Contact</a>
       </div>
     </>
   );

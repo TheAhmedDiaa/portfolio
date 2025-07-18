@@ -5,6 +5,8 @@
   --color-background: hsl(0, 0%, 98%);
   --color-surface: hsl(0, 0%, 100%);
   --color-card: hsl(0, 0%, 95%);
+  --color-footer-background: hsl(230, 15%, 7%);
+  --color-navbar-background: hsl(230, 15%, 13%);
 
   --color-text-primary: hsl(230, 15%, 10%);
   --color-text-secondary: hsl(230, 15%, 40%);

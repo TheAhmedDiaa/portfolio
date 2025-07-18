@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--color-footer-background);
+  border-radius: 1rem 1rem 0 0;
+
+  padding: 2rem;
+
+  color: var(--color-text-secondary);
+}
+
+#contacts {
+  display: inline-block;
+}
+
+.contact {
+  display: inline-block;
+  width: 2rem;
+  margin: 0 1rem;
+}
