@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div id="contacts">
-      contact:
+      
       <a href="https://www.linkedin.com/in/ahmeddiaaa">
         <img className="contact" src={lnkin}></img>
       </a>
@@ -22,6 +22,7 @@ export default function Footer() {
         <img className="contact" id="phone" src={phone}></img>
       </a>
       </div>
+      <hr />
       <p id="modified">Last modified: {new Date().getMonth() + 1}/{new Date().getFullYear()}</p>
     </footer>
   );
