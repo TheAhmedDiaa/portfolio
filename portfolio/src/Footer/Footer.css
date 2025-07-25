@@ -8,8 +8,6 @@
 }
 
 #contacts {
-  display: flex;
-  justify-content: space-between;
   max-width: fit-content;
   margin: 1rem auto;
 }

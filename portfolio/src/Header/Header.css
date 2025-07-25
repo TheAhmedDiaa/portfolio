@@ -2,7 +2,7 @@ header {
   margin: 1rem;
   position: sticky;
   top: 2rem;
-  z-index: 2;
+  z-index: 100;
 }
 
 #mainPar {
@@ -21,6 +21,7 @@ header {
 
 .h3 {
   padding-left: 3rem;
+  border-radius: inherit;
 }
 
 .as {
@@ -52,7 +53,7 @@ header {
   height: 100%;
   width: 0;
   position:absolute;
-  z-index: 3;
+  z-index: 200;
   top: 0;
   right: 0;
   background-color: var(--color-navbar-background);
