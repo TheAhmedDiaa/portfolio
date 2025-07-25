@@ -52,9 +52,10 @@ export default function Header() {
           </GradientText>
           {!isSmall && (
             <div className="as">
-              <a className="a" href="#skills">Skills</a>
               <a className="a" href="#about">About</a>
+              <a className="a" href="#skills">Skills</a>
               <a className="a" href="#projects">Projects</a>
+              <a className="a" href="#contact">Contact</a>
             </div>
           )}
           {isSmall && <img className="img" src={bars} onClick={openNav} alt="More"></img>}
