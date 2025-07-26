@@ -11,11 +11,10 @@
   padding: 2rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 784px) {
   .hero {
     text-align: unset;
   }
-  
 }
 
 .hero-text {
@@ -31,7 +30,7 @@
   max-width: 30rem;
 }
 
-.hero-image {
+.hero-image-container {
   max-width: 15rem;
   margin: 1rem auto;
 
@@ -43,6 +42,37 @@
   transition: 0.3s ease;
 }
 
-.hero-image:hover {
+.hero-image {
+  width: 100%;
+  border-radius: inherit;
+}
+
+.hero-image-container:hover {
   transform: translateY(-0.25rem) translateX(-0.25rem);
+}
+
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(#000 0 0);
+  background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+  background-size: 20% 100%;
+  animation: l1 1s infinite linear;
+}
+@keyframes l1 {
+  0% {
+    background-size: 20% 100%, 20% 100%, 20% 100%;
+  }
+  33% {
+    background-size: 20% 10%, 20% 100%, 20% 100%;
+  }
+  50% {
+    background-size: 20% 100%, 20% 10%, 20% 100%;
+  }
+  66% {
+    background-size: 20% 100%, 20% 100%, 20% 10%;
+  }
+  100% {
+    background-size: 20% 100%, 20% 100%, 20% 100%;
+  }
 }

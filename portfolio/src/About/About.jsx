@@ -1,8 +1,18 @@
 import "./About.css";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import Ahmed from "../assets/photo.png";
+import { useEffect, useState } from "react";
 
 export default function About() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("load", () => setLoaded(true));
+    return () => {
+      window.removeEventListener("load", () => setLoaded(true));
+    };
+  }, []);
+
   return (
     <section className="hero" id="about" data-aos="fade-up">
       <div className="hero-text">
@@ -18,11 +28,17 @@ export default function About() {
         </p>
         <p className="about-text">
           I'm a React web developer with a passion for creating dynamic and
-          engaging UI and UX. I focus on building responsive and accessible
-          web applications that prioritize SEO, UI, UX, and performance.
+          engaging UI and UX. I focus on building responsive and accessible web
+          applications that prioritize SEO, UI, UX, and performance.
         </p>
       </div>
-      <img src={Ahmed} alt="Ahmed" className="hero-image" />
+      <div className="hero-image-container">
+        {loaded ? (
+          <img className="hero-image" src={Ahmed} alt="Ahmed" loading="lazy" />
+        ) : (
+          <div className="loader"></div>
+        )}
+      </div>
     </section>
   );
 }
