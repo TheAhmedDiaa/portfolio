@@ -6,7 +6,7 @@ header {
 }
 
 #mainPar {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 0.5fr;
   margin: 0 auto;
 
@@ -39,7 +39,7 @@ header {
 .img {
   max-width: 2rem;
   margin-right: 2rem;
-  
+
   display: flex;
   justify-self: right;
   align-self: center;
@@ -52,11 +52,14 @@ header {
 #sidePar {
   height: 100%;
   width: 0;
-  position:absolute;
+  position: fixed;
   z-index: 200;
   top: 0;
   right: 0;
+
   background-color: var(--color-navbar-background);
+  color: var(--color-text-secondary);
+
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -75,4 +78,6 @@ header {
   top: 0;
   font-size: 2rem;
   margin-left: 2rem;
+
+  cursor: pointer;
 }
