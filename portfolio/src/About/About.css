@@ -11,6 +11,13 @@
   padding: 2rem;
 }
 
+@media screen and (min-width: 768px) {
+  .hero {
+    text-align: unset;
+  }
+  
+}
+
 .hero-text {
   margin: 0 auto;
 }
