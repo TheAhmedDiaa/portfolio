@@ -19,7 +19,7 @@ export default function About() {
         <p className="about-text">
           I'm a React web developer with a passion for creating dynamic and
           engaging UI and UX. I specialize in building responsive and accessible
-          web applications that prioritize user needs.
+          web applications that prioritize SEO, UI, UX, and performance.
         </p>
       </div>
       <img src={Ahmed} alt="Ahmed" className="hero-image" />
