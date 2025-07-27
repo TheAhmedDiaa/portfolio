@@ -1,17 +1,10 @@
 import "./About.css";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import Ahmed from "../assets/photo.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function About() {
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("load", () => setLoaded(true));
-    return () => {
-      window.removeEventListener("load", () => setLoaded(true));
-    };
-  }, []);
 
   return (
     <section className="hero" id="about" data-aos="fade-up">
@@ -33,11 +26,14 @@ export default function About() {
         </p>
       </div>
       <div className="hero-image-container">
-        {loaded ? (
-          <img className="hero-image" src={Ahmed} alt="Ahmed" loading="lazy" />
-        ) : (
-          <div className="loader"></div>
-        )}
+        <img
+          className="hero-image"
+          src={Ahmed}
+          alt="Ahmed"
+          onLoad={() => setLoaded(true)}
+          style={{ display: loaded ? 'block' : 'none' }}
+        />
+        {!loaded && <div className="loader"></div>}
       </div>
     </section>
   );
