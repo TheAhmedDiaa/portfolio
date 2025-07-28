@@ -36,14 +36,7 @@
   min-height: 10rem;
   margin: 1rem auto;
 
-  background-color: white;
   border-radius: 2rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  box-shadow: var(--shadow-elevation);
 
   transition: 0.3s ease;
 }
@@ -51,10 +44,22 @@
 .hero-image {
   width: 100%;
   border-radius: inherit;
+
+  background-color: white;
+  border-radius: 2rem;
+
+  box-shadow: var(--shadow-elevation);
 }
 
 .hero-image-container:hover {
   transform: translateY(-0.25rem) translateX(-0.25rem);
+}
+
+.hero-image-caption {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .loader {

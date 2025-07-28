@@ -25,7 +25,7 @@ export default function About() {
           applications that prioritize SEO, UI, UX, and performance.
         </p>
       </div>
-      <div className="hero-image-container">
+      <figure className="hero-image-container">
         <img
           className="hero-image"
           src={Ahmed}
@@ -34,7 +34,10 @@ export default function About() {
           style={{ display: loaded ? 'block' : 'none' }}
         />
         {!loaded && <div className="loader"></div>}
-      </div>
+        <figcaption className="hero-image-caption">
+          Ahmed Diaa - React Web Developer
+        </figcaption>
+      </figure>
     </section>
   );
 }
