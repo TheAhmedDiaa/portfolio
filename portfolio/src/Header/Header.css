@@ -1,7 +1,6 @@
 header {
-  margin: 1rem;
   position: sticky;
-  top: 2rem;
+  top: 0rem;
   z-index: 100;
 }
 
@@ -10,13 +9,9 @@ header {
   grid-template-columns: 1fr 0.5fr;
   margin: 0 auto;
 
-  max-width: 600px;
   min-height: 3.2rem;
-  background-color: var(--color-surface);
+  background-color: var(--color-background);
   box-shadow: var(--shadow-elevation);
-
-  border: solid 4px var(--color-border);
-  border-radius: 50px;
 }
 
 .h3 {
@@ -33,7 +28,7 @@ header {
 }
 
 .a {
-  margin: 0 0.25rem;
+  margin: 0 1rem;
 }
 
 .img {

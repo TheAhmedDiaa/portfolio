@@ -1,5 +1,6 @@
 .hero {
   display: flex;
+  background-color: var(--color-surface);
 
   flex-direction: row;
   flex-wrap: wrap;
