@@ -36,7 +36,7 @@ export default function Skills() {
   return (
     <section className="skills bg-(--color-background)" id="skills">
       <h2 className="text-3xl font-bold text-center m-3">My Skills</h2>
-      <div className="skills-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
+      <div className="skills-grid grid sm:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         <Skill title="Languages" skills={langs} />
         <Skill title="Frontend" skills={frontend} />
         <Skill title="Backend" skills={backend} />
