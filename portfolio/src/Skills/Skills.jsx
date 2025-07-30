@@ -12,6 +12,10 @@ import bootstrap from '../assets/bootstrap.svg';
 import next from '../assets/nextjs.svg';
 import node from '../assets/nodejs.svg';
 
+import git from '../assets/git.svg';
+import github from '../assets/github.svg';
+import docker from '../assets/docker.svg';
+
 
 export default function Skills() {
 
@@ -33,14 +37,20 @@ export default function Skills() {
     { icon: node, name: 'Node.js' }
   ];
 
+  const tools = [
+    { icon: git, name: 'Git' },
+    { icon: github, name: 'GitHub' },
+    { icon: docker, name: 'Docker' }
+  ];
+
   return (
     <section className="skills bg-(--color-background)" id="skills">
       <h2 className="text-3xl font-bold text-center m-3">My Skills</h2>
-      <div className="skills-grid grid sm:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
+      <div className="skills-grid grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         <Skill title="Languages" skills={langs} />
         <Skill title="Frontend" skills={frontend} />
         <Skill title="Backend" skills={backend} />
-        <Skill title="Tools" skills={[]} />
+        <Skill title="Tools" skills={tools} />
       </div>
     </section>
   );
