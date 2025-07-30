@@ -25,7 +25,7 @@ export default function About() {
           applications that prioritize SEO, UI, UX, and performance.
         </p>
       </div>
-      <figure className="hero-image-container">
+      <figure className="hero-image-container rounded-lg">
         <img
           className="hero-image"
           src={Ahmed}

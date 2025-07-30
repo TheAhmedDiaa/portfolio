@@ -37,17 +37,13 @@
   min-height: 10rem;
   margin: 1rem auto;
 
-  border-radius: 2rem;
-
   transition: 0.3s ease;
 }
 
 .hero-image {
-  width: 100%;
   border-radius: inherit;
 
   background-color: white;
-  border-radius: 2rem;
 
   box-shadow: var(--shadow-elevation);
 }
@@ -64,6 +60,7 @@
 }
 
 .loader {
+  margin: 0 auto;
   width: 45px;
   aspect-ratio: 1;
   --c: no-repeat linear-gradient(#000 0 0);
