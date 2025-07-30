@@ -1,5 +1,7 @@
 import Skill from './Skill';
 
+import code from '../assets/code.svg';
+
 import js from '../assets/js.svg';
 import ts from '../assets/typescript.svg';
 
@@ -45,7 +47,7 @@ export default function Skills() {
 
   return (
     <section className="skills bg-(--color-background)" id="skills">
-      <h2 className="text-3xl font-bold text-center m-3">My Skills</h2>
+      <h2 className="text-3xl font-bold text-center m-3">My Skills <span><img src={code} alt="Code" className="inline-block w-20" /></span></h2>
       <div className="skills-grid grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         <Skill title="Languages" skills={langs} />
         <Skill title="Frontend" skills={frontend} />
