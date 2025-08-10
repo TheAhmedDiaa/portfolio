@@ -7,7 +7,7 @@ import phone from "../assets/phone.svg";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div id="contacts">
+      <div id="contact">
         <a href="https://www.linkedin.com/in/ahmeddiaaa">
           <img className="contact" src={lnkin}></img>
         </a>

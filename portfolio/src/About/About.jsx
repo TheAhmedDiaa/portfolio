@@ -25,7 +25,7 @@ export default function About() {
           applications that prioritize SEO, UI, UX, and performance.
         </p>
       </div>
-      <figure className="hero-image-container rounded-lg">
+      <figure className="hero-image-container rounded-lg" data-aos="fade-left">
         <img
           className="hero-image"
           src={Ahmed}
