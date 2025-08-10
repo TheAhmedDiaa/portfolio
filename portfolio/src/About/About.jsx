@@ -31,7 +31,7 @@ export default function About() {
           src={Ahmed}
           alt="Ahmed"
           onLoad={() => setLoaded(true)}
-          style={{ display: loaded ? 'block' : 'none' }}
+          style={{display:"block"}}
         />
         {!loaded && <div className="loader"></div>}
         <figcaption className="hero-image-caption">
