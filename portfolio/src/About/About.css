@@ -46,10 +46,16 @@
   background-color: white;
 
   box-shadow: var(--shadow-elevation);
+
+  transition: 0.3s ease;
 }
 
 .hero-image-container:hover {
-  transform: translateY(-0.25rem) translateX(-0.25rem);
+  transform: translateY(-0.25rem) translateX(-0.25rem) !important;
+
+  .hero-image {
+    box-shadow: var(--shadow-elevation-hover);
+  }
 }
 
 .hero-image-caption {

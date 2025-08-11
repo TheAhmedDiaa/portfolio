@@ -50,6 +50,7 @@
     --color-divider: hsl(230, 15%, 18%);
 
     --shadow-elevation: 5px 4px 10px hsla(0, 0%, 0%, 0.5);
+    --shadow-elevation-hover: 11px 10px 16px hsla(0, 0%, 0%, 0.5);
   }
 }
 

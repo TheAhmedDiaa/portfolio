@@ -21,8 +21,8 @@ export default function About() {
         </p>
         <p className="about-text">
           I'm a React web developer with a passion for creating dynamic and
-          engaging UI and UX. I focus on building responsive and accessible web
-          applications that prioritize SEO, UI, UX, and performance.
+          engaging web applications. I focus on building responsive and accessible web
+          applications that prioritize SEO, UI/UX, and performance.
         </p>
       </div>
       <figure className="hero-image-container rounded-lg" data-aos="fade-left">
@@ -31,7 +31,7 @@ export default function About() {
           src={Ahmed}
           alt="Ahmed"
           onLoad={() => setLoaded(true)}
-          style={{display:"block"}}
+          style={{display: loaded ? "block" : "none"}}
         />
         {!loaded && <div className="loader"></div>}
         <figcaption className="hero-image-caption">
