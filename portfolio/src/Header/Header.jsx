@@ -40,35 +40,81 @@ export default function Header() {
 
   return (
     <>
-      <header data-aos="fade-down">
-        <nav id="mainPar">
+      <header data-aos="fade-down" className="sticky top-0 z-10">
+        <nav
+          id="mainPar"
+          className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-elevation)] bg-(--color-background)"
+        >
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={3}
             showBorder={false}
-            className="h3"
+            className="pl-12 rounded-[inherit]"
           >
             Ahmed's Portfolio
           </GradientText>
           {!isSmall && (
-            <div className="as">
-              <a className="a" href="#about">About</a>
-              <a className="a" href="#skills">Skills</a>
-              <a className="a" href="#projects">Projects</a>
-              <a className="a" href="#contact">Contact</a>
+            <div className="flex pr-8 ml-auto items-center shadow-2xl">
+              <a className="mx-4" href="#about">
+                About
+              </a>
+              <a className="mx-4" href="#skills">
+                Skills
+              </a>
+              <a className="mx-4" href="#projects">
+                Projects
+              </a>
+              <a className="mx-4" href="#contact">
+                Contact
+              </a>
             </div>
           )}
-          {isSmall && <img className="img" src={bars} onClick={openNav} alt="More"></img>}
+          {isSmall && (
+            <img
+              className="max-w-8 mr-8 flex justify-self-end self-center rounded-[inherit] cursor-pointer"
+              src={bars}
+              onClick={openNav}
+              alt="More"
+            ></img>
+          )}
         </nav>
       </header>
-      <div id="sidePar" style={{ width: sideParOpen ? "205px" : "0" }}>
-        <button id="closeB" onClick={closeNav}>
+      <div
+        id="sidePar"
+        className="h-full w-0 fixed z-[200] top-0 right-0 overflow-x-hidden transition-all duration-500 pt-15 bg-(--color-navbar-background) text-(--color-text-secondary)"
+        style={{ width: sideParOpen ? "205px" : "0" }}
+      >
+        <button
+          id="closeB"
+          className="fixed top-0 text-2xl ml-8 cursor-pointer"
+          onClick={closeNav}
+        >
           &times;
         </button>
-        <a className="a" href="#about">About</a>
-        <a className="a" href="#skills">Skills</a>
-        <a className="a" href="#projects">Projects</a>
-        <a className="a" href="#contact">Contact</a>
+        <a
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          href="#about"
+        >
+          About
+        </a>
+        <a
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          href="#skills"
+        >
+          Skills
+        </a>
+        <a
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          href="#projects"
+        >
+          Projects
+        </a>
+        <a
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          href="#contact"
+        >
+          Contact
+        </a>
       </div>
     </>
   );
