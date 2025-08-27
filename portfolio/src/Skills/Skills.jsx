@@ -44,7 +44,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className="skills bg-(--color-background)" id="skills">
+    <section className="skills bg-(--background)" id="skills">
       <h2 className="text-3xl font-bold text-center m-3">
         My Skills{" "}
         <span>

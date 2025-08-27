@@ -43,7 +43,7 @@ export default function Header() {
       <header data-aos="fade-down" className="sticky top-0 z-10">
         <nav
           id="mainPar"
-          className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-elevation)] bg-(--color-background)"
+          className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-lg)] bg-(--background)"
         >
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -54,17 +54,17 @@ export default function Header() {
             Ahmed's Portfolio
           </GradientText>
           {!isSmall && (
-            <div className="flex pr-8 ml-auto items-center shadow-2xl">
-              <a className="mx-4" href="#about">
+            <div className="href-container flex pr-8 ml-auto items-center shadow-2xl">
+              <a className="mx-4 relative" href="#about">
                 About
               </a>
-              <a className="mx-4" href="#skills">
+              <a className="mx-4 relative" href="#skills">
                 Skills
               </a>
-              <a className="mx-4" href="#projects">
+              <a className="mx-4 relative" href="#projects">
                 Projects
               </a>
-              <a className="mx-4" href="#contact">
+              <a className="mx-4 relative" href="#contact">
                 Contact
               </a>
             </div>
@@ -81,7 +81,7 @@ export default function Header() {
       </header>
       <div
         id="sidePar"
-        className="h-full w-0 fixed z-[200] top-0 right-0 overflow-x-hidden transition-all duration-500 pt-15 bg-(--color-navbar-background) text-(--color-text-secondary)"
+        className="h-full w-0 fixed z-[200] top-0 right-0 overflow-x-hidden transition-all duration-500 pt-15 bg-(--nav-background) text-(--secondary-text)"
         style={{ width: sideParOpen ? "205px" : "0" }}
       >
         <button

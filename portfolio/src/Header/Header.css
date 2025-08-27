@@ -1,0 +1,17 @@
+.href-container a::before {
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  width: 0;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    var(--primary-text),
+    var(--secondary-text)
+  );
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.href-container a:hover::before {
+  width: 100%;
+}

@@ -23,7 +23,7 @@ export default function About() {
             Ahmed
           </GradientText>
         </p>
-        <p className="text-2xl leading-relaxed max-w-md text-(--color-text-secondary) sm:m-0 mx-auto group">
+        <p className="text-2xl leading-relaxed max-w-md text-(--secondary-text) sm:m-0 mx-auto group">
           React web developer
           {/*I'm a React web developer with a passion for creating dynamic and
           engaging web applications. I focus on building responsive and accessible web
@@ -35,14 +35,14 @@ export default function About() {
         data-aos="fade-left"
       >
         <img
-          className="hero-image rounded-[inherit] shadow-[var(--shadow-elevation)] transition-all duration-300 ease-in-out group-hover:shadow-[var(--shadow-elevation-hover)]"
+          className="hero-image rounded-[inherit] shadow-[var(--shadow-lg)] transition-all duration-300 ease-in-out group-hover:shadow-[var(--shadow-xl)]"
           src={Ahmed}
           alt="Ahmed"
           onLoad={() => setLoaded(true)}
           style={{ display: loaded ? "block" : "none" }}
         />
         {!loaded && <div className="loader"></div>}
-        <figcaption className="image-caption text-sm mt-2 text-center text-(--color-text-secondary)">
+        <figcaption className="image-caption text-sm mt-2 text-center text-(--secondary-text)">
           Ahmed Diaa - React Web Developer
         </figcaption>
       </figure>
