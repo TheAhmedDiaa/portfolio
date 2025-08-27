@@ -12,10 +12,17 @@
   margin: 1rem auto;
 }
 
-.contact {
+.contact-links {
   display: inline-block;
   width: 2rem;
   margin: 0 1rem;
+
+  transition: 0.3s;
+}
+
+.contact-links:hover {
+  margin: -0.5rem 2rem 1rem 2rem;
+  transform: scale(2);
 }
 
 #modified {

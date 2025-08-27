@@ -8,17 +8,17 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div id="contact">
-        <a href="https://www.linkedin.com/in/ahmeddiaaa">
-          <img className="contact" src={lnkin}></img>
+        <a href="https://www.linkedin.com/in/ahmeddiaaa" target="_blank">
+          <img className="contact-links" src={lnkin}></img>
         </a>
-        <a href="https://wa.me/qr/ZVZYBOBLAZJGI1">
-          <img className="contact" id="watsap" src={whatsapp}></img>
+        <a href="https://wa.me/qr/QYYABGVLYFWUE1" target="_blank">
+          <img className="contact-links" id="watsap" src={whatsapp}></img>
         </a>
-        <a href="mailto:diaaa625@gmail.com">
-          <img className="contact" id="gmail" src={gmail}></img>
+        <a href="mailto:theahmeddiaa@gmail.com" target="_blank">
+          <img className="contact-links" id="gmail" src={gmail}></img>
         </a>
-        <a href="tel:+201093797637">
-          <img className="contact" id="phone" src={phone}></img>
+        <a href="tel:+201157803789" target="_blank">
+          <img className="contact-links" id="phone" src={phone}></img>
         </a>
       </div>
       <hr />
