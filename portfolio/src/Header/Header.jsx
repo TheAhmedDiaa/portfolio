@@ -55,16 +55,16 @@ export default function Header() {
           </GradientText>
           {!isSmall && (
             <div className="href-container flex pr-8 ml-auto items-center shadow-2xl">
-              <a className="mx-4 relative" href="#about">
+              <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#about">
                 About
               </a>
-              <a className="mx-4 relative" href="#skills">
+              <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#skills">
                 Skills
               </a>
-              <a className="mx-4 relative" href="#projects">
+              <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#projects">
                 Projects
               </a>
-              <a className="mx-4 relative" href="#contact">
+              <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#contact">
                 Contact
               </a>
             </div>
@@ -92,25 +92,25 @@ export default function Header() {
           &times;
         </button>
         <a
-          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30 text-(--accent) hover:text-(--accent-hover)"
           href="#about"
         >
           About
         </a>
         <a
-          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30 text-(--accent) hover:text-(--accent-hover)"
           href="#skills"
         >
           Skills
         </a>
         <a
-          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30 text-(--accent) hover:text-(--accent-hover)"
           href="#projects"
         >
           Projects
         </a>
         <a
-          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30"
+          className="block py-2 px-2 pl-8 text-2xl no-underline transition-all duration-30 text-(--accent) hover:text-(--accent-hover)"
           href="#contact"
         >
           Contact

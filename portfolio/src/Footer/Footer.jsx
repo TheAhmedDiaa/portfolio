@@ -1,4 +1,3 @@
-import "./Footer.css";
 import lnkin from "../assets/linkedin.svg";
 import whatsapp from "../assets/whatsapp.svg";
 import gmail from "../assets/gmail.svg";

@@ -1,9 +1,9 @@
-import "./About.css";
+import "./Hero.css";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import Ahmed from "../assets/photo.jpg";
 import { useState } from "react";
 
-export default function About() {
+export default function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   return (
