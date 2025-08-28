@@ -3,7 +3,7 @@
   position: absolute;
   bottom: -7px;
   width: 0;
-  height: 10px;
+  height: 7px;
   background: var(--accent-hover);
   border-radius: 5px;
   transition: 0.3s;
