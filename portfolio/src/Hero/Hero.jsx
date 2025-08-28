@@ -13,7 +13,7 @@ export default function Hero() {
       data-aos="fade-up"
     >
       <div className="hero-text m-0 mx-auto">
-        <p className="text-8xl font-black uppercase">
+        <h1 className="text-8xl font-black uppercase">
           Hi i'm{" "}
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -22,12 +22,9 @@ export default function Hero() {
           >
             Ahmed
           </GradientText>
-        </p>
+        </h1>
         <p className="text-2xl leading-relaxed max-w-md text-(--secondary-text) sm:m-0 mx-auto group">
           React web developer
-          {/*I'm a React web developer with a passion for creating dynamic and
-          engaging web applications. I focus on building responsive and accessible web
-          applications that prioritize SEO, UI/UX, and performance.*/}
         </p>
       </div>
       <figure
