@@ -43,13 +43,13 @@ export default function Header() {
       <header data-aos="fade-down" className="sticky top-0 z-10">
         <nav
           id="mainPar"
-          className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-lg)] bg-(--background)"
+          className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-lg)] bg-(--nav-background) backdrop-blur-md"
         >
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={3}
             showBorder={false}
-            className="pl-12 rounded-[inherit]"
+            className="pl-12 rounded-[inherit] bg-transparent"
           >
             Ahmed's Portfolio
           </GradientText>

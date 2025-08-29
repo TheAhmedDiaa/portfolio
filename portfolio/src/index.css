@@ -7,7 +7,7 @@
   --muted-text: hsl(220, 10%, 50%);
   --background: hsl(0, 0%, 100%);
   --card-background: hsl(220, 20%, 98%);
-  --nav-background: hsl(0, 0%, 100%);
+  --nav-background: hsla(0, 0%, 100%, 0.7);
   --footer-background: hsl(220, 15%, 96%);
   --accent: hsl(280, 85%, 60%);
   --accent-hover: hsl(285, 90%, 55%);
@@ -40,7 +40,7 @@
     --muted-text: hsl(220, 15%, 60%);
     --background: hsl(230, 25%, 8%);
     --card-background: hsl(225, 20%, 12%);
-    --nav-background: hsl(230, 25%, 8%);
+    --nav-background: hsla(229, 27%, 8%, 0.7);
     --footer-background: hsl(225, 20%, 12%);
     --accent: hsl(285, 90%, 70%);
     --accent-hover: hsl(280, 95%, 65%);
