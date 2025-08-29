@@ -1,62 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Mode Colors */
-  --primary-text: hsl(220, 15%, 10%);
-  --secondary-text: hsl(220, 12%, 35%);
-  --muted-text: hsl(220, 10%, 50%);
-  --background: hsl(0, 0%, 100%);
-  --card-background: hsl(220, 20%, 98%);
-  --nav-background: hsla(0, 0%, 100%, 0.5);
-  --footer-background: hsl(220, 15%, 96%);
-  --accent: hsl(280, 85%, 60%);
-  --accent-hover: hsl(285, 90%, 55%);
-  --border: hsl(220, 13%, 91%);
-  --border-hover: hsl(220, 15%, 85%);
+  /* Dark Mode Colors */
+  --primary-text: hsl(220, 25%, 95%);
+  --secondary-text: hsl(220, 20%, 75%);
+  --muted-text: hsl(220, 15%, 60%);
+  --background: hsl(230, 25%, 8%);
+  --card-background: hsl(225, 20%, 12%);
+  --nav-background: hsla(229, 27%, 8%, 0.5);
+  --footer-background: hsl(225, 20%, 12%);
+  --accent: hsl(285, 90%, 70%);
+  --accent-hover: hsl(280, 95%, 65%);
+  --border: hsl(225, 15%, 20%);
+  --border-hover: hsl(225, 15%, 25%);
 
-  /* Shadow System */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  /* Shadow System - Dark Mode */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
 
-  /* Colored Shadows */
-  --shadow-accent-sm: 0 1px 3px hsla(280, 85%, 60%, 0.12);
-  --shadow-accent-md: 0 4px 12px hsla(280, 85%, 60%, 0.15);
-  --shadow-accent-lg: 0 8px 24px hsla(280, 85%, 60%, 0.2);
+  /* Colored Shadows - Dark Mode */
+  --shadow-accent-sm: 0 1px 3px hsla(285, 90%, 70%, 0.2);
+  --shadow-accent-md: 0 4px 12px hsla(285, 90%, 70%, 0.25);
+  --shadow-accent-lg: 0 8px 24px hsla(285, 90%, 70%, 0.3);
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Colors */
-    --primary-text: hsl(220, 25%, 95%);
-    --secondary-text: hsl(220, 20%, 75%);
-    --muted-text: hsl(220, 15%, 60%);
-    --background: hsl(230, 25%, 8%);
-    --card-background: hsl(225, 20%, 12%);
-    --nav-background: hsla(229, 27%, 8%, 0.5);
-    --footer-background: hsl(225, 20%, 12%);
-    --accent: hsl(285, 90%, 70%);
-    --accent-hover: hsl(280, 95%, 65%);
-    --border: hsl(225, 15%, 20%);
-    --border-hover: hsl(225, 15%, 25%);
-
-    /* Shadow System - Dark Mode */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
-
-    /* Colored Shadows - Dark Mode */
-    --shadow-accent-sm: 0 1px 3px hsla(285, 90%, 70%, 0.2);
-    --shadow-accent-md: 0 4px 12px hsla(285, 90%, 70%, 0.25);
-    --shadow-accent-lg: 0 8px 24px hsla(285, 90%, 70%, 0.3);
   }
 }
 
