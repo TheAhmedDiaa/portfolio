@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="About" data-aos="fade-up">
+    <section id="about" data-aos="fade-up">
       <h2 className="text-3xl font-bold text-center m-3 ">
         About me{" "}
         <i
