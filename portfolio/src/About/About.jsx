@@ -18,7 +18,7 @@ export default function About() {
           React
         </a>{" "}
         web developer with a passion for creating dynamic and engaging web
-        applications. I'm currently a second year studen at Faculty of computer
+        applications. I'm currently a second year student at Faculty of computer
         & information science (
         <a
           className="text-(--accent) hover:text-(--accent-hover)"
