@@ -35,7 +35,7 @@ export default function Footer() {
           ></img>
         </a>
       </div>
-      <hr />
+      <hr  className="text-(--border)"/>
       <p id="modified" className="flex justify-center pt-4">
         Last modified: July {new Date().getFullYear()}
       </p>
