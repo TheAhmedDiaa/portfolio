@@ -1,6 +1,6 @@
 export default function Skill({ title, skills }) {
   return (
-    <div className="skill bg-(--card-background) shadow-[var(--shadow-sm)] rounded-lg transition-all duration-300 hover:shadow-[var(--shadow-accent-lg)] hover:scale-105">
+    <div className="skill bg-(--card-background) max-w-64 w-full h-full shadow-[var(--shadow-sm)] rounded-lg transition-all duration-300 hover:shadow-[var(--shadow-accent-lg)] hover:scale-105">
       <h3 className="text-xl font-semibold m-4 text-center">{title}</h3>
       <div className="skill-icons p-4">
         {skills.map((skill, index) => (

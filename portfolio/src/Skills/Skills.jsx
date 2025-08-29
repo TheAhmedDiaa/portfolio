@@ -51,7 +51,7 @@ export default function Skills() {
           <img src={code} alt="Code" className="inline-block w-20" />
         </span>
       </h2>
-      <div className="skills-grid grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
+      <div className="skills-grid grid place-items-center mx-auto sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         <Skill title="Languages" skills={langs} />
         <Skill title="Frontend" skills={frontend} />
         <Skill title="Backend" skills={backend} />
