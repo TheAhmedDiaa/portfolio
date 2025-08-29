@@ -5,7 +5,7 @@ import phone from "../assets/phone.svg";
 
 export default function Footer() {
   return (
-    <footer className="footer bg-(--footer-background) rounded-t-2xl p-8 text-(--secondary-text)">
+    <footer className="footer bg-(--footer-background) backdrop-blur-md rounded-t-2xl p-8 text-(--secondary-text)">
       <div id="contact" className="max-w-fit mx-auto my-4">
         <a href="https://www.linkedin.com/in/ahmeddiaaa" target="_blank">
           <img

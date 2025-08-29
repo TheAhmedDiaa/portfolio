@@ -5,10 +5,10 @@
   --primary-text: hsl(220, 25%, 95%);
   --secondary-text: hsl(220, 20%, 75%);
   --muted-text: hsl(220, 15%, 60%);
-  --background: hsl(230, 25%, 8%);
-  --card-background: hsl(225, 20%, 12%);
+  --background: hsl(0, 0%, 0%);
+  --card-background: hsl(225, 20%, 12%, 0.5);
   --nav-background: hsla(229, 27%, 8%, 0.5);
-  --footer-background: hsl(225, 20%, 12%);
+  --footer-background: hsl(225, 20%, 10%, 0.5);
   --accent: hsl(285, 90%, 70%);
   --accent-hover: hsl(280, 95%, 65%);
   --border: hsl(225, 15%, 20%);
