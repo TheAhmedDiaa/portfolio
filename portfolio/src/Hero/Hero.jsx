@@ -2,16 +2,18 @@ import "./Hero.css";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import Ahmed from "../assets/photo.jpg";
 import { useState } from "react";
+import DarkVeil from '../Backgrounds/DarkVeil/DarkVeil';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <section
-      className="hero flex flex-row flex-wrap items-center justify-center text-center p-8 md:text-left "
+      className="hero flex flex-row flex-wrap items-center justify-center text-center p-8 md:text-left relative h-[100vh] w-full"
       id="hero"
       data-aos="fade-up"
     >
+      <DarkVeil speed={2} className="absolute -z-10 bottom-0 left-0" />
       <div className="hero-text m-0 mx-auto">
         <h1 className="text-8xl font-black uppercase">
           Hi i'm{" "}
@@ -28,7 +30,7 @@ export default function Hero() {
         </p>
       </div>
       <figure
-        className=".hero-image-container max-w-60 min-w-40 min-h-40 m-4 mx-auto rounded-lg transition-all! duration-300 ease-in-out hover:!-translate-y-1 hover:!-translate-x-1 group"
+        className="hero-image-container max-w-75 min-w-40 min-h-40 m-4 mx-auto rounded-lg transition-all! duration-300 ease-in-out hover:!-translate-y-1 hover:!-translate-x-1 group"
         data-aos="fade-left"
       >
         <img
