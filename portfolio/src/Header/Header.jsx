@@ -56,7 +56,7 @@ export default function Header() {
           {!isSmall && (
             <div className="href-container flex pr-8 ml-auto items-center shadow-2xl">
               <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#about">
-                About
+                About me
               </a>
               <a className="mx-4 relative text-(--accent) hover:text-(--accent-hover)" href="#skills">
                 Skills
