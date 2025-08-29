@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     <>
-      <header data-aos="fade-down" className="sticky top-0 z-10">
+      <header data-aos="fade-down" className="fixed top-0 z-10 w-full">
         <nav
           id="mainPar"
           className="grid grid-cols-[1fr_0.5fr] mx-auto min-h-[3.2rem] shadow-[var(--shadow-lg)] bg-(--nav-background) backdrop-blur-md"
