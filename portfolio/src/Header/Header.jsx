@@ -81,12 +81,12 @@ export default function Header() {
       </header>
       <div
         id="sidePar"
-        className="h-full w-0 fixed z-[200] top-0 right-0 overflow-x-hidden transition-all duration-500 pt-15 bg-(--nav-background) text-(--secondary-text)"
+        className="h-full w-0 fixed z-[200] top-0 right-0 overflow-x-hidden transition-all duration-500 pt-15 bg-(--nav-background) backdrop-blur-md text-(--secondary-text)"
         style={{ width: sideParOpen ? "205px" : "0" }}
       >
         <button
           id="closeB"
-          className="fixed top-0 text-2xl ml-8 cursor-pointer"
+          className="fixed top-0 text-6xl ml-8 cursor-pointer"
           onClick={closeNav}
         >
           &times;
