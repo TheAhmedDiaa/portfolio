@@ -1,6 +1,6 @@
 import "./Hero.css";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
-import Ahmed from "../assets/photo.jpg";
+import Ahmed from "../assets/photo.png";
 import { useState } from "react";
 import DarkVeil from '../Backgrounds/DarkVeil/DarkVeil';
 
