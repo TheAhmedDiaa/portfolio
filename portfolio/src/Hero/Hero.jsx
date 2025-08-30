@@ -34,7 +34,7 @@ export default function Hero() {
         data-aos="fade-left"
       >
         <img
-          className="hero-image rounded-[inherit] shadow-[var(--shadow-lg)] transition-all duration-300 ease-in-out group-hover:shadow-[var(--shadow-xl)]"
+          className="hero-image rounded-[inherit] shadow-[var(--shadow-lg)] transition-all duration-300 ease-in-out group-hover:shadow-[var(--shadow-accent-lg)]"
           src={Ahmed}
           alt="Ahmed"
           onLoad={() => setLoaded(true)}
