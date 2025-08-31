@@ -1,3 +1,5 @@
+import Threads from "../Backgrounds/Threads/Threads";
+
 import Skill from "./Skill";
 
 import code from "../assets/code.svg";
@@ -44,14 +46,22 @@ export default function Skills() {
   ];
 
   return (
-    <section className="skills bg-(--background) backdrop-blur-md" id="skills">
+    <section
+      className="skills bg-(--background) backdrop-blur-md h-[100vh] relative flex flex-col justify-center overflow-hidden"
+      id="skills"
+    >
+      <Threads
+        color={[(100, 39, 200)]}
+        distance={0.3}
+        amplitude={3}
+      />
       <h2 className="text-3xl font-bold text-center m-3">
         My Skills{" "}
         <span>
           <img src={code} alt="Code" className="inline-block w-20" />
         </span>
       </h2>
-      <div className="skills-grid grid place-items-center mx-auto sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
+      <div className="skills-grid grid place-items-center mx-auto w-full sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
         <Skill title="Languages" skills={langs} />
         <Skill title="Frontend" skills={frontend} />
         <Skill title="Backend" skills={backend} />
