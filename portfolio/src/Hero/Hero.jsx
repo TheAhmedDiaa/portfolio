@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <section
-      className="hero flex flex-row flex-wrap items-center justify-center text-center p-8 md:text-left relative h-[100vh] w-full mt-8"
+      className="hero flex flex-row flex-wrap items-center justify-center text-center p-8 md:text-left relative min-h-[100vh] max-h-full w-full mt-8"
       id="hero"
       data-aos="fade-up"
     >

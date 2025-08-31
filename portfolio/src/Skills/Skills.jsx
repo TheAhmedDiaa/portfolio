@@ -47,7 +47,7 @@ export default function Skills() {
 
   return (
     <section
-      className="skills bg-(--background) backdrop-blur-md h-[100vh] relative flex flex-col justify-center overflow-hidden"
+      className="skills bg-(--background) backdrop-blur-md min-h-[100vh] max-h-full relative w-full flex flex-col justify-center items-center"
       id="skills"
     >
       <Threads
