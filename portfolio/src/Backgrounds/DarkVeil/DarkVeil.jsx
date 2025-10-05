@@ -2,6 +2,7 @@
 	Installed from https://reactbits.dev/tailwind/
 */
 
+import React from "react";
 import { useRef, useEffect } from "react";
 import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
 
@@ -77,7 +78,7 @@ void main(){
 }
 `;
 
-export default function DarkVeil({
+function DarkVeil({
   hueShift = 0,
   noiseIntensity = 0,
   scanlineIntensity = 0,
@@ -88,15 +89,17 @@ export default function DarkVeil({
   className = "",
 }) {
   const ref = useRef(null);
+  const oglRef = useRef(null); // store renderer, program, etc.
+
+  // 🧠 Setup renderer ONCE
   useEffect(() => {
     const canvas = ref.current;
+    if (!canvas) return;
     const parent = canvas.parentElement;
-
     const renderer = new Renderer({
       dpr: Math.min(window.devicePixelRatio, 2),
       canvas,
     });
-
     const gl = renderer.gl;
     const geometry = new Triangle(gl);
 
@@ -115,10 +118,11 @@ export default function DarkVeil({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
+    oglRef.current = { renderer, program, mesh };
 
     const resize = () => {
-      const w = parent.clientWidth,
-        h = parent.clientHeight;
+      const w = parent.clientWidth;
+      const h = parent.clientHeight;
       renderer.setSize(w * resolutionScale, h * resolutionScale);
       program.uniforms.uResolution.value.set(w, h);
     };
@@ -132,11 +136,6 @@ export default function DarkVeil({
     const loop = () => {
       program.uniforms.uTime.value =
         ((performance.now() - start) / 1000) * speed;
-      program.uniforms.uHueShift.value = hueShift;
-      program.uniforms.uNoise.value = noiseIntensity;
-      program.uniforms.uScan.value = scanlineIntensity;
-      program.uniforms.uScanFreq.value = scanlineFrequency;
-      program.uniforms.uWarp.value = warpAmount;
       renderer.render({ scene: mesh });
       frame = requestAnimationFrame(loop);
     };
@@ -147,15 +146,38 @@ export default function DarkVeil({
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
     };
+  }, []); // 👈 only runs once
+
+  // 🔄 Update uniforms when props change (fast)
+  useEffect(() => {
+    if (!oglRef.current) return;
+    const { program } = oglRef.current;
+    program.uniforms.uHueShift.value = hueShift;
+    program.uniforms.uNoise.value = noiseIntensity;
+    program.uniforms.uScan.value = scanlineIntensity;
+    program.uniforms.uScanFreq.value = scanlineFrequency;
+    program.uniforms.uWarp.value = warpAmount;
   }, [
     hueShift,
     noiseIntensity,
     scanlineIntensity,
-    speed,
     scanlineFrequency,
     warpAmount,
-    resolutionScale,
-    className,
   ]);
+
+  // 🔄 Update resolution when it changes
+  useEffect(() => {
+    if (!oglRef.current) return;
+    const { renderer, program } = oglRef.current;
+    const canvas = renderer.gl.canvas;
+    const parent = canvas.parentElement;
+    const w = parent.clientWidth;
+    const h = parent.clientHeight;
+    renderer.setSize(w * resolutionScale, h * resolutionScale);
+    program.uniforms.uResolution.value.set(w, h);
+  }, [resolutionScale]);
+
   return <canvas ref={ref} className={`w-full h-full block ${className}`} />;
 }
+
+export default React.memo(DarkVeil);
