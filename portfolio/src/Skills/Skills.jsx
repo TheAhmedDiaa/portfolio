@@ -51,7 +51,7 @@ export default function Skills() {
       id="skills"
     >
       <Threads
-        color={[(100, 39, 200)]}
+        color={[100 / 255, 39 / 255, 200 / 255]}
         distance={0.3}
         amplitude={3}
       />

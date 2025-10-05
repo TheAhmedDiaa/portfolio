@@ -2,8 +2,8 @@
 	Installed from https://reactbits.dev/tailwind/
 */
 
-import React from "react";
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
 
 const vertexShader = `
@@ -134,20 +134,6 @@ const Threads = ({
   const animationFrameId = useRef();
   const oglRef = useRef(null);
 
-  // useMemo
-  const colorMemo = useMemo(() => {
-    return new Color(...color);
-  }, [color]);
-  const amplitudeMemo = useMemo(() => {
-    return amplitude;
-  }, [amplitude]);
-  const distanceMemo = useMemo(() => {
-    return distance;
-  }, [distance]);
-  const enableMouseInteractionMemo = useMemo(() => {
-    return enableMouseInteraction;
-  }, [enableMouseInteraction]);
-
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
@@ -172,16 +158,15 @@ const Threads = ({
             gl.canvas.width / gl.canvas.height,
           ),
         },
-        uColor: { value: colorMemo },
-        uAmplitude: { value: amplitudeMemo },
-        uDistance: { value: distanceMemo },
+        uColor: { value: new Color(...color) },
+        uAmplitude: { value: amplitude },
+        uDistance: { value: distance },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
       },
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-    oglRef.current = { renderer, program, mesh };
-      console.log("render Threads");
+    oglRef.current = { renderer, program, mesh, geometry };
 
     function resize() {
       const { clientWidth, clientHeight } = container;
@@ -205,13 +190,13 @@ const Threads = ({
     function handleMouseLeave() {
       targetMouse = [0.5, 0.5];
     }
-    if (enableMouseInteractionMemo) {
+    if (enableMouseInteraction) {
       container.addEventListener("mousemove", handleMouseMove);
       container.addEventListener("mouseleave", handleMouseLeave);
     }
 
     function update(t) {
-      if (enableMouseInteractionMemo) {
+      if (enableMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
         currentMouse[1] += smoothing * (targetMouse[1] - currentMouse[1]);
@@ -229,29 +214,37 @@ const Threads = ({
     animationFrameId.current = requestAnimationFrame(update);
 
     return () => {
-      if (animationFrameId.current)
+      if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
+      }
       window.removeEventListener("resize", resize);
 
-      if (enableMouseInteractionMemo) {
+      if (enableMouseInteraction) {
         container.removeEventListener("mousemove", handleMouseMove);
         container.removeEventListener("mouseleave", handleMouseLeave);
       }
-      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+      
+      if (container.contains(gl.canvas)) {
+        container.removeChild(gl.canvas);
+      }
+      
+      // Cleanup WebGL resources
+      if (geometry) geometry.remove?.();
+      if (program?.program) gl.deleteProgram?.(program.program);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, []);
-
-  useEffect(() => {
-    if (!oglRef.current) return;
-    oglRef.current.program.uniforms.uColor.value = colorMemo;
-    oglRef.current.program.uniforms.uAmplitude.value = amplitudeMemo;
-    oglRef.current.program.uniforms.uDistance.value = distanceMemo;
-  }, [colorMemo, amplitudeMemo, distanceMemo]);  
+  }, [color, amplitude, distance, enableMouseInteraction]);  
 
   return (
     <div ref={containerRef} className="w-full h-full absolute inset-0 -z-20" {...rest} />
   );
 };
 
-export default React.memo(Threads);
+Threads.propTypes = {
+  color: PropTypes.arrayOf(PropTypes.number),
+  amplitude: PropTypes.number,
+  distance: PropTypes.number,
+  enableMouseInteraction: PropTypes.bool,
+};
+
+export default Threads;

@@ -5,6 +5,7 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
+import PropTypes from "prop-types";
 
 const vertex = `
 attribute vec2 position;
@@ -90,8 +91,9 @@ function DarkVeil({
 }) {
   const ref = useRef(null);
   const oglRef = useRef(null); // store renderer, program, etc.
+  const speedRef = useRef(speed);
 
-  // 🧠 Setup renderer ONCE
+  // Setup renderer ONCE
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -118,7 +120,7 @@ function DarkVeil({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-    oglRef.current = { renderer, program, mesh };
+    oglRef.current = { renderer, program, mesh, geometry };
 
     const resize = () => {
       const w = parent.clientWidth;
@@ -135,7 +137,7 @@ function DarkVeil({
 
     const loop = () => {
       program.uniforms.uTime.value =
-        ((performance.now() - start) / 1000) * speed;
+        ((performance.now() - start) / 1000) * speedRef.current;
       renderer.render({ scene: mesh });
       frame = requestAnimationFrame(loop);
     };
@@ -146,9 +148,12 @@ function DarkVeil({
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
     };
-  }, []); // 👈 only runs once
+    if (geometry) geometry.remove?.();
+    if (program) gl.deleteProgram?.(program.program);
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+  }, []); // only runs once
 
-  // 🔄 Update uniforms when props change (fast)
+  // Update uniforms when props change (fast)
   useEffect(() => {
     if (!oglRef.current) return;
     const { program } = oglRef.current;
@@ -165,7 +170,7 @@ function DarkVeil({
     warpAmount,
   ]);
 
-  // 🔄 Update resolution when it changes
+  // Update resolution when it changes
   useEffect(() => {
     if (!oglRef.current) return;
     const { renderer, program } = oglRef.current;
@@ -180,4 +185,15 @@ function DarkVeil({
   return <canvas ref={ref} className={`w-full h-full block ${className}`} />;
 }
 
-export default React.memo(DarkVeil);
+DarkVeil.propTypes = {
+  hueShift: PropTypes.number,
+  noiseIntensity: PropTypes.number,
+  scanlineIntensity: PropTypes.number,
+  speed: PropTypes.number,
+  scanlineFrequency: PropTypes.number,
+  warpAmount: PropTypes.number,
+  resolutionScale: PropTypes.number,
+  className: PropTypes.string,
+};
+
+export default DarkVeil;
