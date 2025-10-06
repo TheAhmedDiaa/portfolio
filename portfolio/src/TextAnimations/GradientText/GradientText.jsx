@@ -3,8 +3,9 @@
 */
 
 import "./GradientText.css";
+import React from "react";
 
-export default function GradientText({
+function GradientText({
   children,
   className = "",
   colors = ["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"],
@@ -27,3 +28,5 @@ export default function GradientText({
     </div>
   );
 }
+
+export default React.memo(GradientText);

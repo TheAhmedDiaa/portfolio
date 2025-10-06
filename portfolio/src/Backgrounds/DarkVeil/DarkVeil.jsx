@@ -148,9 +148,6 @@ function DarkVeil({
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
     };
-    if (geometry) geometry.remove?.();
-    if (program) gl.deleteProgram?.(program.program);
-    gl.getExtension("WEBGL_lose_context")?.loseContext();
   }, []); // only runs once
 
   // Update uniforms when props change (fast)
@@ -196,4 +193,4 @@ DarkVeil.propTypes = {
   className: PropTypes.string,
 };
 
-export default DarkVeil;
+export default React.memo(DarkVeil);

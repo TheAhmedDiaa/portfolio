@@ -2,7 +2,7 @@
 	Installed from https://reactbits.dev/tailwind/
 */
 
-import { useEffect, useRef } from "react";
+import React ,{ useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
 
@@ -247,4 +247,4 @@ Threads.propTypes = {
   enableMouseInteraction: PropTypes.bool,
 };
 
-export default Threads;
+export default React.memo(Threads);
