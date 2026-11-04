@@ -11,6 +11,7 @@ import Projects from "./Projects/Projects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
 import useI18n from "./i18n/useI18n";
+import BackToTop from "./Components/BackToTop";
 
 function App() {
   const { c } = useI18n();
@@ -47,6 +48,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

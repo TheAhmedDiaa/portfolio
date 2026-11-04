@@ -8,6 +8,7 @@ import gmail from "../assets/gmail.svg";
 import phone from "../assets/phone.svg";
 import whatsapp from "../assets/whatsapp.svg";
 import useI18n from "../i18n/useI18n";
+import ContactForm from "./ContactForm";
 
 const EMAIL = "theahmeddiaa@gmail.com";
 
@@ -60,6 +61,8 @@ export default function Contact() {
           {copied ? t.copiedStatus : ""}
         </span>
       </div>
+
+      <ContactForm />
 
       <ul className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3" data-aos="fade-up">
         {LINKS.map((link) => (
