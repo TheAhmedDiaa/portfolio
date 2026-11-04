@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
+import useI18n from "../i18n/useI18n";
 
-const LINKS = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "journey", label: "Journey" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-];
+const LINKS = [{ id: "about" }, { id: "skills" }, { id: "journey" }, { id: "projects" }, { id: "contact" }];
 
 export default function Header() {
+  const { c, lang, toggle } = useI18n();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("hero");
   const [scrolled, setScrolled] = useState(false);
@@ -74,17 +70,17 @@ export default function Header() {
         }`}
       >
         <nav
-          aria-label="Main"
+          aria-label={c.nav.main}
           className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6"
         >
-          <a href="#hero" aria-label="Back to top" className="text-lg font-bold">
+          <a href="#hero" aria-label={c.nav.backToTop} className="text-lg font-bold">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
               animationSpeed={3}
               showBorder={false}
               className="bg-transparent"
             >
-              Ahmed Diaa
+              {c.nav.brand}
             </GradientText>
           </a>
 
@@ -100,17 +96,27 @@ export default function Header() {
                       : "text-(--secondary-text) hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  {c.nav.links[link.id]}
                 </a>
               </li>
             ))}
           </ul>
 
+          <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggle}
+            lang={lang === "en" ? "ar" : "en"}
+            aria-label={c.langButton.aria}
+            className="inline-flex h-9 cursor-pointer items-center rounded-full border border-(--border-hover) bg-white/5 px-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            {c.langButton.label}
+          </button>
           <button
             ref={toggleRef}
             type="button"
             className="grid size-10 cursor-pointer place-items-center rounded-full text-white md:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? c.nav.closeMenu : c.nav.openMenu}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((value) => !value)}
@@ -123,6 +129,7 @@ export default function Header() {
               )}
             </svg>
           </button>
+          </div>
         </nav>
 
         <div
@@ -143,7 +150,7 @@ export default function Header() {
                     active === link.id ? "bg-white/10 text-white" : "text-(--secondary-text)"
                   }`}
                 >
-                  {link.label}
+                  {c.nav.links[link.id]}
                 </a>
               </li>
             ))}

@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import SectionTitle from "../Components/SectionTitle";
 import LazyMount from "../Components/LazyMount";
+import useI18n from "../i18n/useI18n";
 import Skill from "./Skill";
 
 import js from "../assets/js.svg";
@@ -21,14 +22,14 @@ const THREADS_COLOR = [100 / 255, 39 / 255, 200 / 255];
 
 const CARDS = [
   {
-    title: "Languages",
+    id: "languages",
     skills: [
       { icon: js, name: "JavaScript (ES6+)" },
       { icon: ts, name: "TypeScript" },
     ],
   },
   {
-    title: "Frontend",
+    id: "frontend",
     skills: [
       { icon: html, name: "HTML5" },
       { icon: css, name: "CSS3" },
@@ -39,11 +40,11 @@ const CARDS = [
     ],
   },
   {
-    title: "Backend basics",
+    id: "backend",
     skills: [{ icon: node, name: "Node.js / Express" }],
   },
   {
-    title: "Tools",
+    id: "tools",
     skills: [
       { icon: git, name: "Git" },
       { icon: github, name: "GitHub" },
@@ -51,22 +52,9 @@ const CARDS = [
   },
 ];
 
-const CHIPS = [
-  {
-    title: "API & Data",
-    items: ["REST APIs", "Axios", "JWT Auth", "Firebase Auth", "Realtime Database", "MongoDB", "SQL"],
-  },
-  {
-    title: "Libraries & workflow",
-    items: ["React Router", "Context API", "Vite", "Vercel", "Cloudinary", "Postman", "npm", "Agile / Scrum"],
-  },
-  {
-    title: "Also",
-    items: ["Python", "Responsive design", "UI/UX design", "Remote collaboration"],
-  },
-];
-
 export default function Skills() {
+  const { c } = useI18n();
+  const s = c.skills;
   return (
     <section id="skills" className="relative isolate w-full overflow-hidden px-6 py-24">
       <LazyMount className="absolute inset-0 -z-20">
@@ -74,16 +62,16 @@ export default function Skills() {
       </LazyMount>
 
       <div className="mx-auto max-w-6xl">
-        <SectionTitle eyebrow="Skills" title="Tools I work with" />
+        <SectionTitle eyebrow={s.eyebrow} title={s.title} />
 
         <div className="grid grid-cols-1 place-items-center gap-6 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up">
           {CARDS.map((card) => (
-            <Skill key={card.title} title={card.title} skills={card.skills} />
+            <Skill key={card.id} title={s.cards[card.id]} skills={card.skills} />
           ))}
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3" data-aos="fade-up">
-          {CHIPS.map((group) => (
+          {s.chips.map((group) => (
             <div key={group.title} className="glass rounded-2xl p-5">
               <h3 className="mb-3 text-sm font-semibold uppercase tracking-widest text-(--muted-text)">
                 {group.title}

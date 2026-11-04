@@ -1,52 +1,22 @@
 import SectionTitle from "../Components/SectionTitle";
 import BackgroundSection from "../Components/BackgroundSection";
 import Tabs from "../Components/Tabs";
-
-const EXPERIENCE = [
-  "Built responsive client web apps with React.js, Tailwind CSS, Bootstrap and Firebase; integrated REST APIs (OpenWeatherMap, IPGeolocation).",
-  "Implemented secure authentication with Firebase Authentication and role-based access control for admin dashboards.",
-  "Optimized image delivery with Cloudinary, lazy loading and responsive images.",
-  "Gathered requirements and delivered projects on agreed timelines in a remote setting, using Git/GitHub and Vercel for version control and deployment.",
-];
-
-const COURSES = [
-  "Data Structures and Algorithms",
-  "Database Systems",
-  "Web Technologies",
-  "Software Engineering",
-  "OOP",
-];
-
-const CERTS = [
-  {
-    title: "DEPI: React Frontend Web Developer",
-    org: "Digital Egypt Pioneers Program, MCIT",
-    date: "Jun – Dec 2025",
-  },
-  {
-    title: "Web Designer Summer Training",
-    org: "ITIDA & NTI · 120 hours, 95%",
-    date: "Jul 2026",
-  },
-  {
-    title: "CS50x: Introduction to Computer Science",
-    org: "Harvard University (edX)",
-    date: "Dec 2024",
-  },
-];
+import useI18n from "../i18n/useI18n";
 
 function Experience() {
+  const { c } = useI18n();
+  const e = c.journey.experience;
   return (
     <article className="glass mx-auto max-w-3xl rounded-2xl p-6 sm:p-8">
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl font-semibold">Freelance Frontend Developer</h3>
-          <p className="text-(--secondary-text)">Self-employed · Remote, Egypt</p>
+          <h3 className="text-xl font-semibold">{e.role}</h3>
+          <p className="text-(--secondary-text)">{e.org}</p>
         </div>
-        <span className="chip">Jan 2025 – Present</span>
+        <span className="chip">{e.date}</span>
       </header>
-      <ul className="mt-5 list-disc space-y-2 pl-5 text-(--secondary-text) marker:text-(--accent)">
-        {EXPERIENCE.map((item) => (
+      <ul className="mt-5 list-disc space-y-2 ps-5 text-(--secondary-text) marker:text-(--accent)">
+        {e.points.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
@@ -55,20 +25,22 @@ function Experience() {
 }
 
 function Education() {
+  const { c } = useI18n();
+  const ed = c.journey.education;
   return (
     <article className="glass mx-auto max-w-3xl rounded-2xl p-6 sm:p-8">
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl font-semibold">Mansoura University</h3>
-          <p className="text-(--secondary-text)">Bachelor of Computer and Information Science</p>
+          <h3 className="text-xl font-semibold">{ed.school}</h3>
+          <p className="text-(--secondary-text)">{ed.degree}</p>
         </div>
-        <span className="chip">Expected 2027</span>
+        <span className="chip">{ed.date}</span>
       </header>
       <p className="mb-3 mt-5 text-sm font-semibold uppercase tracking-widest text-(--muted-text)">
-        Coursework
+        {ed.coursework}
       </p>
       <ul className="flex flex-wrap gap-2">
-        {COURSES.map((course) => (
+        {ed.courses.map((course) => (
           <li key={course} className="chip">
             {course}
           </li>
@@ -79,9 +51,10 @@ function Education() {
 }
 
 function Certifications() {
+  const { c } = useI18n();
   return (
     <ul className="mx-auto grid max-w-4xl gap-4 md:grid-cols-3">
-      {CERTS.map((cert) => (
+      {c.journey.certs.map((cert) => (
         <li key={cert.title} className="glass flex flex-col rounded-2xl p-5">
           <span className="chip mb-4 self-start">{cert.date}</span>
           <h3 className="font-semibold">{cert.title}</h3>
@@ -92,18 +65,19 @@ function Certifications() {
   );
 }
 
-const TABS = [
-  { id: "experience", label: "Experience", content: <Experience /> },
-  { id: "education", label: "Education", content: <Education /> },
-  { id: "certifications", label: "Certifications", content: <Certifications /> },
-];
-
 export default function Journey() {
+  const { c } = useI18n();
+  const j = c.journey;
+  const tabs = [
+    { id: "experience", label: j.tabs.experience, content: <Experience /> },
+    { id: "education", label: j.tabs.education, content: <Education /> },
+    { id: "certifications", label: j.tabs.certifications, content: <Certifications /> },
+  ];
   return (
     <BackgroundSection id="journey" placement="full">
-      <SectionTitle eyebrow="Journey" title="Experience, education and training" />
+      <SectionTitle eyebrow={j.eyebrow} title={j.title} />
       <div data-aos="fade-up">
-        <Tabs tabs={TABS} label="Journey" />
+        <Tabs tabs={tabs} label={j.tabsLabel} />
       </div>
     </BackgroundSection>
   );

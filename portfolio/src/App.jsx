@@ -9,8 +9,10 @@ import Journey from "./Journey/Journey";
 import Projects from "./Projects/Projects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
+import useI18n from "./i18n/useI18n";
 
 function App() {
+  const { c } = useI18n();
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -32,7 +34,7 @@ function App() {
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-black"
       >
-        Skip to content
+        {c.skip}
       </a>
       <Header />
       <main id="main">

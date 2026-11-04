@@ -6,7 +6,7 @@ export default function Skill({ title, skills }) {
         {skills.map((skill, index) => (
           <div className="skill-icon flex items-center self-center" key={index}>
             <img
-              className="w-8 mt-2 mb-2 mr-2"
+              className="w-8 mt-2 mb-2 me-2"
               src={skill.icon}
               alt={skill.name}
             />

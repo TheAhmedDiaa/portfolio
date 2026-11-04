@@ -1,48 +1,39 @@
 import SectionTitle from "../Components/SectionTitle";
 import BackgroundSection from "../Components/BackgroundSection";
 import { GRADIENT, trackPointer } from "../Components/spotlight";
+import useI18n from "../i18n/useI18n";
 
-const PROJECTS = [
+// language-independent data; text comes from i18n/content.js (items[id])
+const PROJECT_DATA = [
   {
-    title: "JinStore",
-    kind: "E-commerce platform",
-    meta: "Frontend developer · Team of 5 · DEPI final project · 2025",
-    points: [
-      "Built the entire frontend of a MERN e-commerce platform: product browsing, cart, checkout and orders, authentication and a vendor dashboard.",
-      "Integrated the team's REST API with Axios, handling JWT authentication, protected routes and role-based views (user, vendor, admin).",
-      "Managed state with Context API and built reusable components with a responsive Tailwind CSS UI.",
-      "Worked with four teammates (Node/Express/MongoDB backend) via Git and GitHub; deployed on Vercel.",
-    ],
+    id: "jinstore",
     stack: ["React 19", "Vite", "React Router", "Tailwind CSS", "Axios", "REST APIs"],
-    links: [
-      { label: "Live demo", href: "https://ecommerce-jinstore.vercel.app/" },
-      { label: "GitHub", href: "https://github.com/Omar-Kamall/finall-project-depi" },
-    ],
+    hrefs: ["https://ecommerce-jinstore.vercel.app/", "https://github.com/Omar-Kamall/finall-project-depi"],
   },
   {
-    title: "Sunrise Hotels",
-    kind: "Hotel booking platform",
-    meta: "Freelance · Jan 2025",
-    points: [
-      "Developed a hotel booking platform where users browse hotel units and connect via WhatsApp to book.",
-      "Implemented CRUD with Firebase Realtime Database and a secure admin dashboard using Firebase Authentication and role-based permissions.",
-      "Used Cloudinary for image hosting, code splitting and lazy loading; designed a responsive Tailwind CSS UI for all devices.",
-    ],
+    id: "sunrise",
     stack: ["React.js", "Firebase", "Cloudinary", "Tailwind CSS"],
-    links: [],
+    hrefs: [],
   },
 ];
 
 export default function Projects() {
+  const { c } = useI18n();
+  const p = c.projects;
+  const projects = PROJECT_DATA.map((data) => ({
+    ...p.items[data.id],
+    stack: data.stack,
+    links: p.items[data.id].links.map((label, i) => ({ label, href: data.hrefs[i] })),
+  }));
   return (
     <section id="projects" className="w-full px-6 py-24">
       <div className="mx-auto w-full max-w-6xl">
-        <SectionTitle eyebrow="Projects" title="Things I've built">
-          Real apps with authentication, dashboards and live deployments.
+        <SectionTitle eyebrow={p.eyebrow} title={p.title}>
+          {p.sub}
         </SectionTitle>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {PROJECTS.map((project, index) => (
+          {projects.map((project, index) => (
             <article
               key={project.title}
               onPointerMove={trackPointer}
@@ -67,7 +58,7 @@ export default function Projects() {
 
               <div className="flex flex-1 flex-col p-6">
                 <p className="text-sm text-(--muted-text)">{project.meta}</p>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-(--secondary-text) marker:text-(--accent)">
+                <ul className="mt-4 list-disc space-y-2 ps-5 text-(--secondary-text) marker:text-(--accent)">
                   {project.points.map((point) => (
                     <li key={point}>{point}</li>
                   ))}

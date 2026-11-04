@@ -9,9 +9,12 @@ export default function Tabs({ tabs, label = "Sections" }) {
 
   const onKeyDown = (event) => {
     const last = tabs.length - 1;
+    const rtl = document.documentElement.dir === "rtl";
+    const forward = rtl ? "ArrowLeft" : "ArrowRight";
+    const back = rtl ? "ArrowRight" : "ArrowLeft";
     let next;
-    if (event.key === "ArrowRight") next = index === last ? 0 : index + 1;
-    else if (event.key === "ArrowLeft") next = index === 0 ? last : index - 1;
+    if (event.key === forward) next = index === last ? 0 : index + 1;
+    else if (event.key === back) next = index === 0 ? last : index - 1;
     else if (event.key === "Home") next = 0;
     else if (event.key === "End") next = last;
     else return;
