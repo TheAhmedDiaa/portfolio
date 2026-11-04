@@ -2,6 +2,8 @@ import { lazy } from "react";
 import SectionTitle from "../Components/SectionTitle";
 import LazyMount from "../Components/LazyMount";
 import useI18n from "../i18n/useI18n";
+import useLowPower from "../Components/useLowPower";
+import StaticBackdrop from "../Components/StaticBackdrop";
 import Skill from "./Skill";
 
 import js from "../assets/js.svg";
@@ -55,11 +57,18 @@ const CARDS = [
 export default function Skills() {
   const { c } = useI18n();
   const s = c.skills;
+  const lowPower = useLowPower();
   return (
     <section id="skills" className="relative isolate w-full overflow-hidden px-6 py-24">
-      <LazyMount className="absolute inset-0 -z-20">
-        <Threads color={THREADS_COLOR} distance={0.3} amplitude={3} />
-      </LazyMount>
+      {lowPower ? (
+        <div className="absolute inset-0 -z-20">
+          <StaticBackdrop variant="threads" />
+        </div>
+      ) : (
+        <LazyMount className="absolute inset-0 -z-20">
+          <Threads color={THREADS_COLOR} distance={0.3} amplitude={3} />
+        </LazyMount>
+      )}
 
       <div className="mx-auto max-w-6xl">
         <SectionTitle eyebrow={s.eyebrow} title={s.title} />

@@ -2,6 +2,8 @@ import { lazy } from "react";
 import LazyMount from "../Components/LazyMount";
 import useMediaQuery from "../Components/useMediaQuery";
 import useI18n from "../i18n/useI18n";
+import useLowPower from "../Components/useLowPower";
+import StaticBackdrop from "../Components/StaticBackdrop";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import { GRADIENT } from "../Components/spotlight";
 import photo from "../assets/photo.webp";
@@ -31,12 +33,16 @@ export default function Hero() {
   const { c, lang } = useI18n();
   const h = c.hero;
   const cvUrl = pickCv(lang);
+  const lowPower = useLowPower();
   return (
     <section
       id="hero"
       className="relative isolate flex min-h-svh w-full items-center overflow-hidden px-6 pb-16 pt-24"
     >
       <div className="absolute inset-0 -z-10" aria-hidden="true">
+        {lowPower ? (
+          <StaticBackdrop variant="topo" />
+        ) : (
         <LazyMount>
         <Topography
           dpr={1.5}
@@ -50,6 +56,7 @@ export default function Hero() {
           clickEffect="pulse"
         />
         </LazyMount>
+        )}
         <div
           className="absolute inset-0"
           style={{

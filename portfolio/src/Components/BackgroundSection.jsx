@@ -1,6 +1,8 @@
 import { lazy, useState } from "react";
 import LazyMount from "./LazyMount";
 import useMediaQuery from "./useMediaQuery";
+import useLowPower from "./useLowPower";
+import StaticBackdrop from "./StaticBackdrop";
 
 const AeroShards = lazy(() => import("../Backgrounds/AeroShards/AeroShards"));
 
@@ -9,11 +11,15 @@ const AeroShards = lazy(() => import("../Backgrounds/AeroShards/AeroShards"));
 export default function BackgroundSection({ id, placement = "full", children }) {
   const [failed, setFailed] = useState(false);
   const isMobile = useMediaQuery("(max-width: 767px)");
+  const lowPower = useLowPower();
 
   return (
     <section id={id} className="relative isolate w-full overflow-hidden">
-      {!failed && (
+      {(
         <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+          {failed || lowPower ? (
+            <StaticBackdrop variant="shards" />
+          ) : (
           <LazyMount>
           <AeroShards
             placement={isMobile ? "full" : placement}
@@ -27,6 +33,7 @@ export default function BackgroundSection({ id, placement = "full", children }) 
             }}
           />
           </LazyMount>
+          )}
           <div className="absolute inset-0 bg-black/55 md:bg-black/30" />
         </div>
       )}

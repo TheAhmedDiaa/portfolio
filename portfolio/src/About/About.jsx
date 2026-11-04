@@ -3,6 +3,8 @@ import SectionTitle from "../Components/SectionTitle";
 import BackgroundSection from "../Components/BackgroundSection";
 import LazyMount from "../Components/LazyMount";
 import useI18n from "../i18n/useI18n";
+import useLowPower from "../Components/useLowPower";
+import StaticBackdrop from "../Components/StaticBackdrop";
 
 const CrystalizedBall = lazy(() => import("../Backgrounds/CrystalizedBall/CrystalizedBall"));
 
@@ -12,6 +14,7 @@ export default function About() {
   const { c, lang } = useI18n();
   const a = c.about;
   const rtl = lang === "ar";
+  const lowPower = useLowPower();
   return (
     <BackgroundSection id="about" placement="left">
       <SectionTitle eyebrow={a.eyebrow} title={a.title} />
@@ -46,6 +49,9 @@ export default function About() {
         <div className="mx-auto w-full max-w-md" data-aos={rtl ? "fade-right" : "fade-left"}>
           <div className="relative aspect-square w-full">
             <div className="absolute inset-0" aria-hidden="true">
+              {lowPower ? (
+                <StaticBackdrop variant="orb" />
+              ) : (
               <LazyMount>
               <CrystalizedBall
                 preset="plasma"
@@ -57,6 +63,7 @@ export default function About() {
                 hoverStrength={0.7}
               />
               </LazyMount>
+              )}
             </div>
           </div>
           <p className="mt-2 text-center text-sm text-(--muted-text)">
