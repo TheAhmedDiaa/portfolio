@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
+import "aos/dist/aos.css"; // bundled instead of loaded from unpkg
 import "./App.css";
 import Header from "./Header/Header";
 import Hero from "./Hero/Hero";

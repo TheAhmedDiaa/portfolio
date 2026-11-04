@@ -4,12 +4,21 @@ import useMediaQuery from "../Components/useMediaQuery";
 import useI18n from "../i18n/useI18n";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import { GRADIENT } from "../Components/spotlight";
-import photo from "../assets/photo.png";
+import photo from "../assets/photo.webp";
 import github from "../assets/github.svg";
 import linkedin from "../assets/linkedin.svg";
 import gmail from "../assets/gmail.svg";
 
 const Topography = lazy(() => import("../Backgrounds/Topography/Topography"));
+
+// CV PDFs dropped in src/assets/cv/ (cv-en.pdf, cv-ar.pdf). No PDF => no button.
+const CV_FILES = import.meta.glob("../assets/cv/*.pdf", { eager: true, query: "?url", import: "default" });
+function pickCv(lang) {
+  const entries = Object.entries(CV_FILES);
+  if (entries.length === 0) return null;
+  const match = entries.find(([path]) => path.toLowerCase().includes(`-${lang}.`));
+  return (match ?? entries[0])[1];
+}
 
 const SOCIALS = [
   { href: "https://github.com/theAhmedDiaa", icon: github, key: "github" },
@@ -21,6 +30,7 @@ export default function Hero() {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const { c, lang } = useI18n();
   const h = c.hero;
+  const cvUrl = pickCv(lang);
   return (
     <section
       id="hero"
@@ -108,6 +118,18 @@ export default function Hero() {
             >
               {h.getInTouch}
             </a>
+            {cvUrl && (
+              <a
+                href={cvUrl}
+                download="Ahmed-Diaa-CV.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-(--border-hover) bg-white/5 px-6 py-3 font-semibold backdrop-blur transition hover:bg-white/10"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14" />
+                </svg>
+                {h.downloadCv}
+              </a>
+            )}
             <ul className="flex items-center gap-2">
               {SOCIALS.map((social) => (
                 <li key={social.key}>
@@ -138,6 +160,7 @@ export default function Hero() {
               width="256"
               height="256"
               fetchPriority="high"
+              decoding="async"
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-(--muted-text)">
