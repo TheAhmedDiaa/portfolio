@@ -1,6 +1,9 @@
-import CrystalizedBall from "../Backgrounds/CrystalizedBall/CrystalizedBall";
+import { lazy } from "react";
 import SectionTitle from "../Components/SectionTitle";
 import BackgroundSection from "../Components/BackgroundSection";
+import LazyMount from "../Components/LazyMount";
+
+const CrystalizedBall = lazy(() => import("../Backgrounds/CrystalizedBall/CrystalizedBall"));
 
 const STATS = [
   { value: "2027", label: "Expected graduation, Mansoura University" },
@@ -53,6 +56,7 @@ export default function About() {
         <div className="mx-auto w-full max-w-md" data-aos="fade-left">
           <div className="relative aspect-square w-full">
             <div className="absolute inset-0" aria-hidden="true">
+              <LazyMount>
               <CrystalizedBall
                 preset="plasma"
                 color="#B86BFF"
@@ -62,6 +66,7 @@ export default function About() {
                 interactive
                 hoverStrength={0.7}
               />
+              </LazyMount>
             </div>
           </div>
           <p className="mt-2 text-center text-sm text-(--muted-text)">

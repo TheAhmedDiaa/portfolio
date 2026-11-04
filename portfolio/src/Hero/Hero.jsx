@@ -1,10 +1,13 @@
-import Topography from "../Backgrounds/Topography/Topography";
+import { lazy } from "react";
+import LazyMount from "../Components/LazyMount";
 import GradientText from "../TextAnimations/GradientText/GradientText.jsx";
 import { GRADIENT } from "../Components/spotlight";
 import photo from "../assets/photo.png";
 import github from "../assets/github.svg";
 import linkedin from "../assets/linkedin.svg";
 import gmail from "../assets/gmail.svg";
+
+const Topography = lazy(() => import("../Backgrounds/Topography/Topography"));
 
 const SOCIALS = [
   { href: "https://github.com/theAhmedDiaa", icon: github, label: "GitHub" },
@@ -19,7 +22,9 @@ export default function Hero() {
       className="relative isolate flex min-h-screen w-full items-center overflow-hidden px-6 pb-16 pt-24"
     >
       <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <LazyMount>
         <Topography
+          dpr={1.5}
           color="#4f7cff"
           lineCount={24}
           tilt={34}
@@ -29,6 +34,7 @@ export default function Hero() {
           hoverEffect="lift"
           clickEffect="pulse"
         />
+        </LazyMount>
         <div
           className="absolute inset-0"
           style={{

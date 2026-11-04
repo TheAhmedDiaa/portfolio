@@ -1,5 +1,6 @@
-import Threads from "../Backgrounds/Threads/Threads";
+import { lazy } from "react";
 import SectionTitle from "../Components/SectionTitle";
+import LazyMount from "../Components/LazyMount";
 import Skill from "./Skill";
 
 import js from "../assets/js.svg";
@@ -13,6 +14,10 @@ import next from "../assets/nextjs.svg";
 import node from "../assets/nodejs.svg";
 import git from "../assets/git.svg";
 import github from "../assets/github.svg";
+
+const Threads = lazy(() => import("../Backgrounds/Threads/Threads"));
+// stable reference so Threads doesn't rebuild its renderer on re-render
+const THREADS_COLOR = [100 / 255, 39 / 255, 200 / 255];
 
 const CARDS = [
   {
@@ -64,7 +69,9 @@ const CHIPS = [
 export default function Skills() {
   return (
     <section id="skills" className="relative isolate w-full overflow-hidden px-6 py-24">
-      <Threads color={[100 / 255, 39 / 255, 200 / 255]} distance={0.3} amplitude={3} />
+      <LazyMount className="absolute inset-0 -z-20">
+        <Threads color={THREADS_COLOR} distance={0.3} amplitude={3} />
+      </LazyMount>
 
       <div className="mx-auto max-w-6xl">
         <SectionTitle eyebrow="Skills" title="Tools I work with" />
